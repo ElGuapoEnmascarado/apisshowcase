@@ -1,21 +1,26 @@
-import { Route, Routes } from "react-router-dom";
-import "./App.css";
-import NavBar from "./components/NavBar";
-import ContactosPage from "./pages/ContactosPage";
-import TareasPage from "./pages/TareasPage";
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import PokeComponent from './PokeComponent';
+import CountryComponent from './CountryComponent';
+import CatFactsComponent from './CatFactsComponent';
+import Header from './Header';
+import './App.css';
 
-// Componente funcional
+
 function App() {
-  return (
-    <div className="App">
-      <NavBar></NavBar>
-      <Routes>
-        <Route path="/" element={<TareasPage />}></Route>
-        <Route path="/contactos" element={<ContactosPage />}></Route>
-        <Route path="*" element={<h1>404</h1>} />
-      </Routes>
-    </div>
-  );
+    return (
+        <Router>
+            <div>
+                <Header />
+                <Routes>
+                    <Route path="/poke" element={<PokeComponent />} />
+                    <Route path="/cat-facts" element={<CatFactsComponent />} />
+                    <Route path="/country" element={<CountryComponent />} />
+                </Routes>
+            </div>
+        </Router>
+    );
 }
 
 export default App;
+
